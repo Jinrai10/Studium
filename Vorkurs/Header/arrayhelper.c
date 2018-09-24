@@ -25,11 +25,16 @@ int fillArray(int * arr, int n, int size) {
 }
 
 int moveArray(int * arr, int n, int size) {
-	int x = arr[size-1];
-	for (int i = size-1; i >= 1; i--) {
-		arr[i] = arr[i-1];
+	int x = 0;
+	n %= size;
+	if (n < 0) n+=size;
+	for (int j = 0; j < n; j++) {	
+		x = arr[size-1];
+		for (int i = size-1; i >= 1; i--) {
+			arr[i] = arr[i-1];
+		}
+		arr[0] = x;
 	}
-	arr[0] = x;
 	return 0;
 }
 

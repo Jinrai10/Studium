@@ -2,14 +2,18 @@
 #include"Header/arrayhelper.h"
 #include<string.h>
 
+typedef int yeet;
+typedef char kobe;
+
+
 void aufgabe2() {
-	int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
-	int arr2[] = {8, 0};
-	int size = sizeof(arr)/sizeof(arr[0]);
-	int size2 = sizeof(arr2)/sizeof(arr2[0]);
+	yeet arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+	yeet arr2[] = {8, 0};
+	yeet size = sizeof(arr)/sizeof(arr[0]);
+	yeet size2 = sizeof(arr2)/sizeof(arr2[0]);
 	printArray(arr, size);
 	printf("%i\n", arrayInArray(arr2, arr, size2, size));
-	moveArray(arr, 1, size);
+	moveArray(arr, 0, size);
 	printArray(arr, size);
 	switchArray(arr, size);
 	printArray(arr, size);
@@ -17,22 +21,22 @@ void aufgabe2() {
 	printArray(arr, size);
 }
 
-int switchCharArray(char * arr, int size) {
-	int j = size - 1;
-	char p[size];
-	int i;
-	for(i = 0;i < (int) size/2;i++) {
-		p[i] = arr[j];
-		j--;
+yeet switchCharArray(kobe * arr, yeet size) {
+	yeet j = 0;
+	kobe p = '\0';
+	for(yeet i = 0;i < (yeet) size/2;i++) {
+		j = size - i -1;
+		p = arr[i];
+		arr[i] = arr[j];
+		arr[j] = p;
 	}
-	p[i] = '\0';
 	return 0;
 }
 
 void aufgabe3() {
-	char word[] = "giraf";
-	char word1[10];
-	int size = sizeof(word)/sizeof(word[0]);
+	kobe word[] = "girafarig";
+	kobe word1[10];
+	yeet size = sizeof(word)/sizeof(word[0]);
 	strncpy(word1, word, size);
 	printf("%s\n", word);
 	switchCharArray(word, size);
@@ -42,7 +46,7 @@ void aufgabe3() {
 	}
 }
 
-int main(){
+yeet main(){
 	aufgabe2();
 	aufgabe3();
 	return 0;

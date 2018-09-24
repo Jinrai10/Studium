@@ -7,7 +7,7 @@ int randomInt(int start, int end) {
 	return start + (rand() % (unsigned int) (end-start+ 1));
 }
 
-void randomaArr() {
+void randomArr() {
 	srand(time(NULL));
 	
 	int arr[10][10];

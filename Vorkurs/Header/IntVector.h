@@ -1,17 +1,18 @@
-typedef struct {
-	size_t capacity;
-	size_t size;
-	int vector;
-} IntVector;
+#include<stdlib.h>
+#pragma once
 
-IntVector *IntVector_new(size_t capacity);
+struct IntVectorImpl;
 
-Void IntVector_delete(IntVector *vector);
+typedef struct IntVectorImpl *IntVector;
 
-int IntVector_push_back(IntVector *vector, int val);
+IntVector IntVector_new(size_t capacity);
 
-int IntVector_get(IntVector *vector, size_t index);
+void IntVector_delete(IntVector vector);
 
-void IntVector_set(IntVector *vector, size_t index, int value);
+int IntVector_push_back(IntVector vector, int val);
 
-size_t IntVector_size(IntVector *vector);
+int IntVector_get(IntVector vector, size_t index);
+
+void IntVector_set(IntVector vector, size_t index, int value);
+
+size_t IntVector_size(IntVector vector);

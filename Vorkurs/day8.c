@@ -10,27 +10,25 @@ int main(int args, char ** argv) {
 	int enthalten = 0;
 	
 	FILE * fd = fopen(argv[1], "r");
-	FILE * fg = fopen(argv[2], "w+");
+	FILE * fg;
 	
 	if (fd == NULL || fg == NULL) {
 		exit(0);
 	}
-	while(fgets(buffer, 255, fd) != NULL) {
+	while(fgets(buffer, 255, fd) != NULL) {	
+		fg = fopen(argv[2], "r+");
+	
 		enthalten = 0;
-		printf("%s", buffer);
-		while(enthalten == 0) {
-			if (fgets(buffer1, 255, fg) != NULL) {
-				if (strcmp(buffer, buffer1) == 0) {
-					enthalten = 1;
-				}			
-			}else {
-				break;
-			}
+		while(enthalten == 0 && fgets(buffer1, 255, fg) != NULL) {
+			if (strcmp(buffer, buffer1) == 0) enthalten = 1;
 		}
-		if(enthalten == 0) fprintf(fg, "%s", buffer); 
+		if(enthalten == 0) {
+			fprintf(fg, "%s", buffer); 
+			printf("%s", buffer);
+		}
+		fclose(fg);
 	}
 	fclose(fd);
-	fclose(fg);
 	
 	return 0;
 }

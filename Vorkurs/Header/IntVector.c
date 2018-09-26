@@ -14,7 +14,7 @@ IntVector IntVector_new(size_t capacity) {
 	if (vector == NULL) return NULL;
 
 	int *memory = malloc(capacity *sizeof(int));
-	if (vector == NULL) {
+	if (memory == NULL) {
 		free(vector);
 		return NULL;
 	}

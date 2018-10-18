@@ -1,5 +1,24 @@
 #include<stdio.h>
 
+/*
+Aufgabe1:
+    input: zahl n
+    output: Liste mit Primfaktoren
+
+    l = Liste von Ganzzahlen
+
+    für i als 2 und alle ungeraden Zahlen kleiner n/2 + 1 und grösser 2  wiederhole
+        wenn n mod i = 0
+            erweitere l mit i
+            solange n mod i = 0
+                n = n/i
+        wenn i > n
+            ende die schleife
+
+    gib die liste zurück
+
+*/
+
 int Aufgabe2a(){
     int n = 0;
     printf("Aufgabe2a:\n");

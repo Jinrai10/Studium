@@ -6,7 +6,7 @@ int Aufgabe2a(){
     printf("Gib eine Zahl ein: \n");
     scanf("%i", &n);
 
-    printf("Aufgabe 2a: %i\n", (n*(n+1))/2);
+    printf("Summe der Zahlen: %i\n", (n*(n+1))/2);
     return 0;
 }
 
@@ -16,12 +16,8 @@ int Aufgabe2b(){
     printf("Gib eine Zahl ein: \n");
     scanf("%i", &n);
 
-    int sum = 0;
-    for (int i = 0; i<=n; i++){
-        sum+= i*i;
-    }
-    printf("Aufgabe 2b: %i\n", sum);
-    return sum;
+    printf("Summe der Quadratzahlen: %i\n", (n*(n+1)*(2*n+1)/6));
+    return 0;
 }
 
 int Aufgabe3(){
@@ -32,7 +28,7 @@ int Aufgabe3(){
     scanf("%i", &n);
 
     if (n < 0) {
-        printf("Fehler! Die eingegebene Zahl war negativ!");
+        printf("Fehler! Die eingegebene Zahl war negativ!\n");
     }else{
 
         for (int i = 2;i<n; i++){
@@ -53,7 +49,9 @@ int Aufgabe3(){
 
 int main(){
     Aufgabe2a();
+    printf("\n");
     Aufgabe2b();
+    printf("\n");
     Aufgabe3();
 
     return 0;

@@ -48,20 +48,20 @@ int Aufgabe3(){
 
     if (n < 0) {
         printf("Fehler! Die eingegebene Zahl war negativ!\n");
-    }else{
-
-        for (int i = 2;i<n; i++){
-            if (n%i == 0){
-                prim = 0;
-            }
-        }
-        if (prim){
-            printf("Ja");
-        }else{
-            printf("Nein");
-        }
-        printf("\n");
+        return 1;
     }
+
+    for (int i = 2;i<n; i++){
+        if (n%i == 0){
+            prim = 0;
+        }
+    }
+    if (prim){
+        printf("Ja");
+    }else{
+        printf("Nein");
+    }
+    printf("\n");
 
     return 0;
 }

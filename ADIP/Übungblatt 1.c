@@ -1,4 +1,13 @@
 #include<stdio.h>
+/*
+    Author:
+        Simon Liessem   3100948
+        Jan Simon Mathy 3206479
+        Vincent Pamatat 3187769
+        Nicolas Gassen  3230009
+        Marc Flintrop   3208023
+*/
+
 
 /*
 Aufgabe1:

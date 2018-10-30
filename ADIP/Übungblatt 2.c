@@ -32,20 +32,25 @@ long fib_rec(long n) {
     return fib_rec(n-1) + fib_rec(n-2);
 }
 
+int fib_even (int n) {
+    unsigned long long f0 = 0;
+    unsigned long long f1 = 1;
+    unsigned long long t = 0;
+    for (int i = 0;i<n;i++) {
+        printf("%i: %llu\n", i+1, f0);
+        t = f1+f0;
+        f0 = f1+t;
+        f1 = t+f0;
+    }
+
+    return 0;
+}
+
 int aufgabe2() {
     long n = 6;
     printf("Die Fibonaccizahl von %ld ist %ld\n", n, fib_rec(n));
 
-    int counter = 1;
-    long fib = 0;
-    long i = 3;
-
-    while(counter<=50){
-        fib = fib_rec(i);
-        printf("%i: %ld\n", counter, fib);
-        i+=3; //Man kann beweisen, dass jedes dritte Glied der fibonaccizahlen gerade ist
-        counter++;
-    }
+    fib_even(50);
 
     return 0;
 }
@@ -142,7 +147,7 @@ int main(){
             Beim zweiten ist das Ergebnis der Rechnung vorkommen unerwartet statt 85 + 85 = 170 erhalten wir
             85 + 85 = -86 (Zweierkomplementdarstellung)
     */
-    //aufgabe2();
+    aufgabe2();
     aufgabe3(51, 499);
     aufgabe4();
     aufgabe5();

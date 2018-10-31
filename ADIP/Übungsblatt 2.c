@@ -9,7 +9,8 @@
 */
 
 
-int aufgabe1() {
+void aufgabe1() {
+    printf("--------------------\n \nAufgabe 1:\n \n");
     char x1, x2, result;
 
     // Beispiel 1
@@ -23,8 +24,6 @@ int aufgabe1() {
     x2 = 85;
     result = x1 + x2;
     printf("Beispiel 2: %hi + %hi = %hi\n", x1, x2, result);
-
-    return 0;
 }
 
 long fib_rec(long n) {
@@ -32,7 +31,7 @@ long fib_rec(long n) {
     return fib_rec(n-1) + fib_rec(n-2);
 }
 
-int fib_even (int n) {
+void fib_even (int n) {
     unsigned long long f0 = 0;
     unsigned long long f1 = 1;
     unsigned long long t = 0;
@@ -42,17 +41,14 @@ int fib_even (int n) {
         f0 = f1+t;
         f1 = t+f0;
     }
-
-    return 0;
 }
 
-int aufgabe2() {
+void aufgabe2() {
+    printf("--------------------\n \nAufgabe 2:\n \n");
     long n = 6;
     printf("Die Fibonaccizahl von %ld ist %ld\n", n, fib_rec(n));
 
     fib_even(50);
-
-    return 0;
 }
 
 int vollkommen(int n){
@@ -96,7 +92,8 @@ int AnzahlAnDefizientenZahlenKleinerAls(int r){
     return counter;
 }
 
-int aufgabe3(int n, int r){
+void aufgabe3(int n, int r){
+    printf("--------------------\n \nAufgabe 3:\n \n");
     if(vollkommen(n)) printf("Die Zahl %i ist vollkommen!\n", n);
 
     if(defizient(n)) printf("Die Zahl %i ist defizient!\n", n);
@@ -104,18 +101,15 @@ int aufgabe3(int n, int r){
     printf("Vollkommene Zahlen Kleiner als %i\n", r);
     vollkommeneZahlenKleinerAls(r);
     printf("Anzahl an Defizienten Zahlen kleiner als %i: %i\n", r, AnzahlAnDefizientenZahlenKleinerAls(r));
-
-    return 0;
 }
 
-int aufgabe4(){
+void aufgabe4(){
+    printf("--------------------\n \nAufgabe 4:\n \n");
     for(int i = 1; i<=10;i++){
         for(int j = 1; j<= 10;j++){
             printf("%i x %i = %i\n", j, i, i*j);
         }
     }
-
-    return 0;
 }
 
 int potenz(int a, int n){
@@ -129,12 +123,12 @@ int potenz2(int a, int n){
     return a * potenz2(a, (n-1)/2) * potenz2(a, (n-1)/2);
 }
 
-int aufgabe5(){
+void aufgabe5(){
+    printf("--------------------\n \nAufgabe 5:\n \n");
+
     printf("%i\n", potenz(2, 4));
 
     printf("%i\n", potenz2(2, 4));
-
-    return 0;
 }
 
 int main(){

@@ -123,12 +123,32 @@ int potenz2(int a, int n){
     return a * potenz2(a, (n-1)/2) * potenz2(a, (n-1)/2);
 }
 
+int potenz2iter(int a, int n){
+    int tempUneven = 1;
+    int tempEven = 1;
+
+    if(n == 1) return a;
+
+    if (n%2) {
+        tempUneven*=a;
+        n--;
+    }
+
+    for (int i = 0;i<n/2;i++){
+        tempEven *= a;
+    }
+
+    return tempUneven*tempEven*tempEven;
+}
+
 void aufgabe5(){
     printf("--------------------\n \nAufgabe 5:\n \n");
 
     printf("%i\n", potenz(2, 4));
 
     printf("%i\n", potenz2(2, 4));
+
+    printf("%i\n", potenz2iter(2, 4));
 }
 
 int main(){

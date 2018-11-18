@@ -91,9 +91,5 @@ int main() {
     printf("%s\n", crypt);
     printf("%s\n", encryptbyk(crypt, 52 - k));
 
-    printf("Aufgabe2: \n");
-
-
-
     return 0;
 }

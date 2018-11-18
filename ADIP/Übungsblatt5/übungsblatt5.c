@@ -23,55 +23,34 @@ int palindrom(char * str, int size) {
     return 1;
 }
 
-char * encrypt(char * s){
-    char * r;
-    int len = 0, tmp = 0;
-
-    while(s[len] != '\0') len++;
-    r = malloc(len * sizeof(char));
-
-    for(int i = 0; i < len;i++){
-        if((int) s[i] < 123 && (int) s[i] > 64)
-            tmp = (((int) s[i]) + 13 - 65)%58 + 65;
-        else
-            tmp = s[i];
-        r[i] = (char) tmp;
-        printf("%c -> %c\n", s[i], r[i]);
-    }
-
-    return r;
-}
-
-char * decrypt(char * s){
-    char * r;
-    int len = 0, tmp = 0;
-
-    while(s[len] != '\0') len++;
-    r = malloc(len * sizeof(char));
-
-    for(int i = 0; i < len;i++){
-        if((int) s[i] < 123 && (int) s[i] > 64)
-            tmp = (58 + ((int) s[i]) - 13 - 65)%58 + 65;
-        else
-            tmp = s[i];
-        r[i] = (char) tmp;
-        printf("%c -> %c\n", s[i], r[i]);
-    }
-
-    return r;
-}
-
 char * encryptbyk(char * s, int k){
     char * r;
+    k %= 52;
     int len = 0, tmp = 0;
 
     while(s[len] != '\0') len++;
     r = malloc(len * sizeof(char));
 
     for(int i = 0; i < len;i++){
-        if((int) s[i] < 123 && (int) s[i] > 64)
-            tmp = (((int) s[i]) + k - 65)%58 + 65;
-        else
+        if((int) s[i] < 123 && (int) s[i] > 96){
+            tmp = ((int) s[i] + k - 96);
+            if(tmp > 26){
+                tmp -= 26;
+                if(tmp > 26){
+                    tmp -= 26;
+                    tmp += 96;
+                }else tmp += 64;
+            }else tmp += 96;
+        }else if ((int) s[i] > 64 && (int) s[i] < 91){
+            tmp = (int) s[i] + k - 64;
+            if(tmp > 26){
+                tmp -= 26;
+                if(tmp > 26){
+                    tmp -= 26;
+                    tmp += 64;
+                }else tmp += 96;
+            }else tmp += 64;
+        }else
             tmp = s[i];
         r[i] = (char) tmp;
         printf("%c -> %c\n", s[i], r[i]);
@@ -81,28 +60,21 @@ char * encryptbyk(char * s, int k){
 }
 
 char * decryptbyk(char * s, int k){
-    char * r;
-    int len = 0, tmp = 0;
+    return encryptbyk(s, 52 - k);
+}
 
-    while(s[len] != '\0') len++;
-    r = malloc(len * sizeof(char));
+char * encrypt(char * s){
+    return encryptbyk(s, 13);
+}
 
-    for(int i = 0; i < len;i++){
-        if((int) s[i] < 123 && (int) s[i] > 64)
-            tmp = (58 + ((int) s[i]) - k - 65)%58 + 65;
-        else
-            tmp = s[i];
-        r[i] = (char) tmp;
-        printf("%c -> %c\n", s[i], r[i]);
-    }
-
-    return r;
+char * decrypt(char * s){
+    return decryptbyk(s, 13);
 }
 
 int main() {
     printf("Aufgabe1: \n");
 
-    char * str = "Hello World";
+    char * str = "Hello WorldRSTU_";
     int size = 5, k;
     char * crypt;
     reverseString(str, size);
@@ -114,10 +86,10 @@ int main() {
     printf("%s\n", decrypt(crypt));
 
     printf("Ceasar by k\n");
-    k = 12;
+    k = 51;
     crypt = encryptbyk(str, k);
     printf("%s\n", crypt);
-    printf("%s\n", decryptbyk(crypt, k));
+    printf("%s\n", encryptbyk(crypt, 52 - k));
 
     printf("Aufgabe2: \n");
 

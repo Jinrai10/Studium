@@ -68,7 +68,7 @@ int main(){
     int * memory2 = malloc(sizeof(int));
 
     arr->size = 0;
-    arr->memory = memory;
+    arr->memory = memory2;
 
     dyn_array_min_add(arr2, 1);
     dyn_array_min_add(arr2, 3);

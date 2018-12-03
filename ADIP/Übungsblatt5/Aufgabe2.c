@@ -27,10 +27,12 @@ int dyn_array_add(DynArray *arr, int value){
 
 int dyn_array_min_add(DynArrayMin *arr, int value){
     assert(arr != NULL && "Array darf nicht NULL sein");
-
-    arr->memory = realloc(arr->memory, arr->size+1);
+    assert(arr->memory != NULL && "Speciher darf nicht NULL sein!");
 
     arr->size++;
+    arr->memory = realloc(arr->memory, arr->size*sizeof(int));
+
+
     arr->memory[arr->size-1] = value;
 
     return 0;
@@ -62,17 +64,22 @@ int main(){
 
     dyn_array_add(arr, 1);
     dyn_array_add(arr, 3);
+    dyn_array_add(arr, 6);
+    printf("size: %zu_%zu\n", arr->size, arr->current_size);
     print_dyn_array(arr);
 
+    free(memory);
     DynArrayMin * arr2 = (DynArrayMin*) malloc(sizeof(DynArrayMin));
     int * memory2 = malloc(sizeof(int));
 
-    arr->size = 0;
-    arr->memory = memory2;
+    arr2->size = 0;
+    arr2->memory = memory2;
 
     dyn_array_min_add(arr2, 1);
-    dyn_array_min_add(arr2, 3);
+    dyn_array_min_add(arr2, 4);
+    printf("size: %zu\n", arr2->size);
     print_dyn_array_min(arr2);
 
+    free(memory2);
     return 0;
 }

@@ -86,10 +86,10 @@ int main() {
     printf("%s\n", decrypt(crypt));
 
     printf("Ceasar by k\n");
-    k = 51;
+    k = 5;
     crypt = encryptbyk(str, k);
     printf("%s\n", crypt);
-    printf("%s\n", encryptbyk(crypt, 52 - k));
+    printf("%s\n", decryptbyk(crypt, k));
 
     return 0;
 }

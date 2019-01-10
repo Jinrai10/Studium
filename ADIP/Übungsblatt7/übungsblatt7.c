@@ -22,17 +22,21 @@ void printList(DoubleNode * head){
         tmp = tmp->next;
     }
     printf("\n");
-    free(tmp);
 }
 
-void insertLast(DoubleNode * head, double data){
+DoubleNode * insertLast(DoubleNode * head, double data){
     DoubleNode * tmp = head;
+
+    if(head==NULL){
+        return insertFirst(NULL,data);
+    }
 
     while(tmp->next != NULL){
         tmp = tmp->next;
     }
     tmp->next = malloc(sizeof(DoubleNode));
     (tmp->next)->data = data;
+    return head;
 }
 
 DoubleNode * reverseDoubleListCon(DoubleNode * head){
@@ -43,21 +47,20 @@ DoubleNode * reverseDoubleListCon(DoubleNode * head){
         res = insertFirst(res, tmp->data);
         tmp = tmp->next;
     }
-    free(tmp);
     return res;
 }
 
-void reverseDoubleList(DoubleNode ** head){
+DoubleNode * reverseDoubleList(DoubleNode * head){
     DoubleNode * prev = NULL;
-    DoubleNode * current = *head, *next;
+    DoubleNode * current = head, *next;
 
     while(current != NULL){
         next = current->next;
-        current->next = prev; // how u do dis
+        current->next = prev;
         prev = current;
         current = next;
     }
-    *head = prev;
+    return prev;
 }
 
 double get(DoubleNode * head, int i){
@@ -89,6 +92,25 @@ void delete(DoubleNode ** head, int i){
     free(delEl);
 }
 
+DoubleNode * delete2(DoubleNode * head, int i){
+    DoubleNode * tmp = head, *delEl;
+    int t = 0;
+    if(i == 0){
+        DoubleNode * new = head->next;
+        free(head);
+        return new;
+    }
+
+    while(tmp->next != NULL && t+1 < i){
+        tmp = tmp->next;
+        t++;
+    }
+    delEl = tmp->next;
+    tmp->next = delEl->next;
+    free(delEl);
+    return head;
+}
+
 void insert(DoubleNode ** head, int i, double data){
     if(i == 0) {
         *head = insertFirst(*head, data);
@@ -106,23 +128,45 @@ void insert(DoubleNode ** head, int i, double data){
     tmp->next = newEl;
 }
 
+DoubleNode * insert2(DoubleNode * head, int i, double data){
+    if(i == 0) {
+        return insertFirst(head, data);
+    }
+    DoubleNode * newEl = malloc(sizeof(DoubleNode)), *tmp = head;
+    int t = 0;
+    newEl->data = data;
+
+    while(tmp->next != NULL && t+1 < i){
+        tmp = tmp->next;
+        t++;
+    }
+    newEl->next = tmp->next;
+    tmp->next = newEl;
+    return head;
+}
+
+
 
 
 int main(){
     DoubleNode * head = insertFirst((DoubleNode *)NULL, 3.3);
     head = insertFirst(head, 5.98393);
-    insertLast(head, 3.45345);
-    insertLast(head, 333);
+    head = insertLast(head, 3.45345);
+    head = insertLast(head, 333);
 
     printList(head);
     printList(reverseDoubleListCon(head));
-    reverseDoubleList(&head);
+    head = reverseDoubleList(head);
     printList(head);
 
     printf("%lf\n", get(head, 0));
     delete(&head, 1);
     printList(head);
     insert(&head, 1, 5.98393);
+    printList(head);
+    head = insert2(head, 1, 6);
+    printList(head);
+    head = delete2(head, 0);
     printList(head);
 
     return 0;

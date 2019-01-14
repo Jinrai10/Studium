@@ -38,7 +38,7 @@ int main() {
     printf("-3 * 2 = %d\n", mult(-3, 2));
     
     printf("\nAufgabe 3:\nGeben sie eine Zahl ein: ");
-    scanf("%f", &fInput);
+    scanf_s("%f", &fInput);
     printf("Sin(%f) = %f\n", fInput, dSin(fInput));
     printf("Vergleichswert mit sin(x) aus math.h: %f\n", sin(fInput));
     printf("Cos(%f) = %f\n", fInput, dCos(fInput));
@@ -158,7 +158,7 @@ void muenzrueckgabe() {
     int iHigh = 0;
     getInput:
         printf("Enter a Number higher than %d\n>", iLow);
-        scanf("%d", &iHigh);
+        scanf_s("%d", &iHigh);
         if(iHigh < iLow)
             goto getInput;
     int iDiff = iHigh - iLow;

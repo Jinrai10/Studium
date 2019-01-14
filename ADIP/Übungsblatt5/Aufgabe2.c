@@ -68,7 +68,6 @@ int main(){
     printf("size: %zu_%zu\n", arr->size, arr->current_size);
     print_dyn_array(arr);
 
-    free(memory);
     DynArrayMin * arr2 = (DynArrayMin*) malloc(sizeof(DynArrayMin));
     int * memory2 = malloc(sizeof(int));
 
@@ -80,6 +79,5 @@ int main(){
     printf("size: %zu\n", arr2->size);
     print_dyn_array_min(arr2);
 
-    free(memory2);
     return 0;
 }

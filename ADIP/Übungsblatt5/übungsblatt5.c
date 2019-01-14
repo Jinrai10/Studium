@@ -29,7 +29,7 @@ char * encryptbyk(char * s, int k){
     int len = 0, tmp = 0;
 
     while(s[len] != '\0') len++;
-    r = malloc(len * sizeof(char));
+    r = malloc(len+1 * sizeof(char));
 
     for(int i = 0; i < len;i++){
         if((int) s[i] < 123 && (int) s[i] > 96){
@@ -55,6 +55,7 @@ char * encryptbyk(char * s, int k){
         r[i] = (char) tmp;
         printf("%c -> %c\n", s[i], r[i]);
     }
+    r[len]='\0';
 
     return r;
 }

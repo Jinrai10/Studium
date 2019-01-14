@@ -41,7 +41,7 @@ void bubbleSort(int arr[], int length) {
 
 int teilung(int arr[], int l, int h) {
 	int pivot = arr[h];
-	int i = (l - 1); 
+	int i = (l - 1);
 	for (int j = l; j <= h - 1; j++) {
 		if (arr[j] <= pivot) {
 			i++;
@@ -66,15 +66,16 @@ void merge(int arr[], int l, int m, int r) {
 	int n1 = m - l + 1;
 	int n2 = r - m;
 
+	int L[n1], R[n2];
 	for (i = 0; i < n1; i++)
 		L[i] = arr[l + i];
 	for (j = 0; j < n2; j++)
 		R[j] = arr[m + 1 + j];
 
-	i = 0; 
-	j = 0; 
-	k = l; 
-	while (i < n1 && j < n2) {	
+	i = 0;
+	j = 0;
+	k = l;
+	while (i < n1 && j < n2) {
 		if (L[i] <= R[j]) {
 			arr[k] = L[i];
 			i++;
@@ -113,28 +114,29 @@ void printArray(int A[], int size)
 {
 	int i;
 	for (i = 0; i < size; i++)
-		printf("%d ", A[i]);
+		printf("[%d]", A[i]);
 	printf("\n");
 }
 
 int main(){
+	int n = 100000;
 
-	int arr1[100], arr2[100], arr3[100], arr4[100], arr5[100];
+	int arr1[n], arr2[n], arr3[n], arr4[n], arr5[n];
 	srand(0);
 	for (int i = 0; i < 100; i++) {
-		arr1[i] = rand();
+		arr1[i] = rand() % 90 + 10;
 	}
 	for (int i = 0; i < 100; i++) {
-		arr2[i] = rand();
+		arr2[i] = rand() % 90 + 10;
 	}
 	for (int i = 0; i < 100; i++) {
-		arr3[i] = rand();
+		arr3[i] = rand() % 90 + 10;
 	}
 	for (int i = 0; i < 100; i++) {
-		arr4[i] = rand();
+		arr4[i] = rand() % 90 + 10;
 	}
 	for (int i = 0; i < 100; i++) {
-		arr5[i] = rand();
+		arr5[i] = rand() % 90 + 10;
 	}
 	int length = sizeof(arr1) / sizeof(arr1[0]);
 
@@ -170,5 +172,13 @@ int main(){
 	quickSort(arr4, 0, length - 1);
 	printArray(arr4, length);
 
-	
+	printf("\n");
+	printf("Merge");
+	printf("\n");
+	printArray(arr5, length);
+	printf("\n");
+	mergeSort(arr5, 0, length - 1);
+	printArray(arr5, length);
+
+
 }

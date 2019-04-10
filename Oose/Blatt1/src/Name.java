@@ -1,12 +1,9 @@
 public class Name {
     public static void main(String[] args) {
         System.out.println("Hallo " + args[0] + "!");
-        System.out.println("0: Summe; 1: Differenz; 2: Produkt; 3: Quotient");
+        System.out.println("deafult: Summe; 1: Differenz; 2: Produkt; 3: Quotient");
         int res, a = Integer.parseInt(args[1]), b = Integer.parseInt(args[2]);
         switch (Integer.parseInt(args[3])) {
-            case 0:
-                res = sum(a, b);
-                break;
             case 1:
                 res = diff(a, b);
                 break;
@@ -17,7 +14,8 @@ public class Name {
                 res = quotient(a, b);
                 break;
             default:
-                throw new IllegalStateException("Unexpected value: " + args[3]);
+                res = sum(a, b);
+                break;
         }
         System.out.println("Das Ergebniss der gewünschten Operation ist: " + res);
     }

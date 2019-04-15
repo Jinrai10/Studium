@@ -18,7 +18,7 @@ public class Aufgabe3 {
             System.out.println("b ist falsch");
         } else {
             System.out.println("b ist wahr");
-        }   // b ? System.out.println("b ist wahr") : System.out.println("b ist falsch"); so wäre es sinnvoll
+        }   // System.out.println(b ? "b ist wahr" : "b ist falsch"); so wäre es sinnvoll
         // b=false ? System.out.println("b ist falsch") : System.out.println("b ist wahr"); so wurde es gemacht
     }
 }

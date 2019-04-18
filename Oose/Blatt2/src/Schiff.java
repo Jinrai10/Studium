@@ -15,8 +15,4 @@ public class Schiff {
     public void empfangeNachricht(String msg){
         System.out.printf("%s(%s): %s%n", this.name, this.kennzeichen, msg);
     }
-
-    public String getName(){
-        return this.name;
-    }
 }

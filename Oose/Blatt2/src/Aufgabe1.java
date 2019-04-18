@@ -8,8 +8,7 @@ public class Aufgabe1 {
     }
 
     private static long fak(long n){
-        if (n == 0) return 1;
-        if (n <= 2) return n;
+        if (n <= 1) return 1;
         return n * fak(n-1);
     }
 

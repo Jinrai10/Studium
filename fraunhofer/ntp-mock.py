@@ -34,6 +34,6 @@ class MyUDPHandler(socketserver.BaseRequestHandler):
         socket.sendto(create_NTPPacket(return_time).to_bytes(), self.client_address)
 
 if __name__ == "__main__":
-    HOST, PORT = "127.0.1.1", 9999
+    HOST, PORT = "127.0.0.1", 123
     with socketserver.UDPServer((HOST, PORT), MyUDPHandler) as server:
         server.serve_forever()

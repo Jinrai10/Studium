@@ -3,7 +3,7 @@ import sys
 
 from ntp_packet import NTPPacket, NTPTimestamp
 
-HOST, PORT = "127.0.1.1", 9999
+HOST, PORT = "127.0.0.1", 123
 data = "".join(sys.argv[1:])
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

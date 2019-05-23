@@ -83,7 +83,9 @@ class DoubleList{
 
         DoubleNode node = this.head;
         for(int j = 0;j<i-1;j++){
-            node = node.next;
+            if(node != null)
+                node = node.next;
+            else return;
         }
         if(node.next != null){
             node.next = node.next.next;

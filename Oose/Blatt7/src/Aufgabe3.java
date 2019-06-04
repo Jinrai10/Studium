@@ -25,8 +25,6 @@ public class Aufgabe3 {
 		tree.inorder();
 		System.out.printf("%nLevelorder: %n");
 		tree.levelorder();
-		System.out.printf("%nLevelorder: %n");
-		tree.levelorder();
 	}
 }
 

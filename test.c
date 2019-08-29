@@ -29,3 +29,8 @@ int main()
 
     return 0;
 }
+
+int uselessfnc()
+{
+return 0;
+}
